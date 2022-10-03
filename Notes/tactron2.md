@@ -113,10 +113,10 @@ Pre-net中的结果与上下文向量context-vector拼接递给两个包含1024�
 ## 位置敏感注意力机制
 
 ![](2022-10-03-21-16-24.png)
+
 [原文:Attention-Based Models for Speech Recognition]
 <https://proceedings.neurips.cc/paper/2015/file/1068c6e4c8051cfd4e9ea8072e3189e2-Paper.pdf>
-
-实现时每一个时刻进行计算即一次计算一个词
+* 实现时每一个时刻进行计算即一次计算一个词
 ~~~
   decoder_input = self.get_go_frame(memory).unsqueeze(0)
         decoder_inputs = self.parse_decoder_inputs(decoder_inputs)
