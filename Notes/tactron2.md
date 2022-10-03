@@ -6,8 +6,9 @@
 <https://arxiv.org/pdf/1712.05884v2.pdf>
 
 ***
-### ==Encoder== 
+### Encoder
 ![](2022-10-03-21-06-52.png)
+
 文本输入后接Character Embedding网络（512维） 后跟三层卷积  每层卷积大小5×1（卷积个数512个，每个卷积核卷积5个字符）  每层卷积之间有batch normalization和RELU激活层，最后投入到双向LSTM(共512维，256/单向)
 ~~~
 class Encoder(nn.Module):
@@ -59,8 +60,9 @@ class Encoder(nn.Module):
 
 
 ***
-### ==Decoder==
+### Decoder
 ![](2022-10-03-21-13-04.png)
+
 每次一帧从encoded输入序列中预测一帧梅尔谱图。前一时刻的预测结果传递到pre-net中，pre-net包含两层全连层(内含256个ReLu隐单元)    pre-net作为信息瓶颈
 
 Pre-net中的结果与上下文向量context-vector拼接递给两个包含1024个单元的单向LSTM，LSTM的输出结果与注意力context-vector通过线性变换预测梅尔频谱，最后预测的梅尔频谱经过五层卷积post-net预测残差，每一层由5×1的512个卷积核构成，除最后一层以外每一层都接一个tanh激活层
@@ -108,11 +110,12 @@ Pre-net中的结果与上下文向量context-vector拼接递给两个包含1024�
 
         return mel_outputs, gate_outputs, alignments
 ~~~
-## ==位置敏感注意力机制==
+## 位置敏感注意力机制
 
 ![](2022-10-03-21-16-24.png)
 [原文:Attention-Based Models for Speech Recognition]
 <https://proceedings.neurips.cc/paper/2015/file/1068c6e4c8051cfd4e9ea8072e3189e2-Paper.pdf>
+
 实现时每一个时刻进行计算即一次计算一个词
 ~~~
   decoder_input = self.get_go_frame(memory).unsqueeze(0)
