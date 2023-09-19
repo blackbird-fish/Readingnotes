@@ -11,8 +11,10 @@ Let $X=\left(x_n \in V \mid n=\right.$ $1, \cdots, N)$ denote the input text tok
 
 $Z^{\mathrm{m}}=\operatorname{Embed}\left(X^{\mathrm{m}} ; \theta_{\mathrm{T}}\right), \quad e_l=\operatorname{Embed}\left(l_{\text {text }} ; \theta_{\mathrm{L}}\right)$
 
-$\begin{aligned}\mathcal{L}_{\mathrm{mlm}} & =\frac{1}{K} \sum_{k=1}^K \log p\left(x_{\pi_k} \mid X^{\mathrm{m}}\right) \\
-\left\{\hat{\theta}_{\mathrm{E}}, \hat{\theta}_{\mathrm{B}}, \hat{\theta}_{\mathrm{T}}, \hat{\theta}_{\mathrm{L}}\right\} & =\underset{\theta_{\mathrm{E}}, \theta_{\mathrm{B}}, \theta_{\mathrm{T}}, \theta_{\mathrm{L}}}{\arg \min _{\mathrm{m}}} \mathcal{L}_{\mathrm{mlm}} .
-\end{aligned}
-$
 ![Alt text](image.png)
+$H_{\mathrm{in}}=\operatorname{Bottleneck}\left(Z^{\mathrm{m}}+e^l ; \theta_{\mathrm{B}}\right)$
+
+$H_{\mathrm{in}}=\operatorname{Bottleneck}\left(Z^{\mathrm{m}}+e^l ; \theta_{\mathrm{B}}\right)$ 
+
+$H_{\mathrm{out}} =\operatorname{Encoder}\left(H_{\mathrm{in}} ; \theta_{\mathrm{E}}\right)$
+
