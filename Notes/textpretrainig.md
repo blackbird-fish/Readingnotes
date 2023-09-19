@@ -11,7 +11,7 @@ Let $X=\left(x_n \in V \mid n=\right.$ $1, \cdots, N)$ denote the input text tok
 
 $Z^{\mathrm{m}}=\operatorname{Embed}\left(X^{\mathrm{m}} ; \theta_{\mathrm{T}}\right), \quad e_l=\operatorname{Embed}\left(l_{\text {text }} ; \theta_{\mathrm{L}}\right)$
 
-![Alt text](image.png)
+![](image.png)
 $H_{\mathrm{in}}=\operatorname{Bottleneck}\left(Z^{\mathrm{m}}+e^l ; \theta_{\mathrm{B}}\right)$
 
 $H_{\mathrm{in}}=\operatorname{Bottleneck}\left(Z^{\mathrm{m}}+e^l ; \theta_{\mathrm{B}}\right)$ 
